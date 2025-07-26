@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FinancialDashboard } from "@/components/financial-dashboard"
 import { LoginPage } from "@/components/login-page"
 import { useAuth } from "@/contexts/auth-context"
@@ -8,6 +8,11 @@ import { useAuth } from "@/contexts/auth-context"
 export default function Home() {
   const { isAuthenticated, login } = useAuth()
   const [error, setError] = useState('')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleLogin = async (username: string, password: string) => {
     setError('')
@@ -17,7 +22,8 @@ export default function Home() {
     }
   }
 
-  if (!isAuthenticated) {
+  // Always show login page first, then check authentication
+  if (!mounted || !isAuthenticated) {
     return <LoginPage onLogin={handleLogin} error={error} />
   }
 

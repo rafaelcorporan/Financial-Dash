@@ -17,14 +17,22 @@ const ADMIN_PASSWORD = 'Aa1234567$$$'
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState<{ username: string } | null>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const authStatus = localStorage.getItem('isAuthenticated')
-    const storedUser = localStorage.getItem('user')
+    setMounted(true)
+    // Only check localStorage in development, not in production
+    // This ensures login page always shows on fresh visits
+    const isDev = process.env.NODE_ENV === 'development'
     
-    if (authStatus === 'true' && storedUser) {
-      setIsAuthenticated(true)
-      setUser(JSON.parse(storedUser))
+    if (isDev) {
+      const authStatus = localStorage.getItem('isAuthenticated')
+      const storedUser = localStorage.getItem('user')
+      
+      if (authStatus === 'true' && storedUser) {
+        setIsAuthenticated(true)
+        setUser(JSON.parse(storedUser))
+      }
     }
   }, [])
 

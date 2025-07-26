@@ -205,7 +205,7 @@ export function LoginPage({ onLogin, error }: LoginPageProps) {
       <AnimatedBackground />
       
       {/* Main login card */}
-      <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-lg shadow-2xl relative z-10">
+      <div className="w-full max-w-md bg-gray-100 border border-slate-800 rounded-lg shadow-2xl relative z-10">
         {/* Header */}
         <div className="text-center py-8 px-6 space-y-6">
           {/* Brand Logo - matching the sidebar exactly */}
@@ -213,14 +213,14 @@ export function LoginPage({ onLogin, error }: LoginPageProps) {
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <BarChart3 className="w-6 h-6 text-white" />
             </div>
-            <span className="font-semibold text-xl text-slate-100">FinanceOS</span>
+            <span className="font-semibold text-xl text-slate-900">FinanceOS</span>
           </div>
           
           <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-slate-100 leading-none tracking-tight">
+            <h1 className="text-2xl font-semibold text-slate-900 leading-none tracking-tight">
               Welcome Back
             </h1>
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-600 text-sm">
               Sign in to access your financial dashboard
             </p>
           </div>
@@ -235,7 +235,7 @@ export function LoginPage({ onLogin, error }: LoginPageProps) {
           )}
 
           <div className="space-y-2">
-            <Label htmlFor="username" className="text-sm font-medium text-slate-300">
+            <Label htmlFor="username" className="text-sm font-medium text-slate-700">
               Username
             </Label>
             <div className="relative">
@@ -253,7 +253,7 @@ export function LoginPage({ onLogin, error }: LoginPageProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-sm font-medium text-slate-300">
+            <Label htmlFor="password" className="text-sm font-medium text-slate-700">
               Password
             </Label>
             <div className="relative">
@@ -295,20 +295,20 @@ export function LoginPage({ onLogin, error }: LoginPageProps) {
 
         {/* System status indicator - matching dashboard theme */}
         <div className="px-6 pb-6">
-          <div className="text-xs text-slate-400 uppercase tracking-wider mb-2">System Status</div>
+          <div className="text-xs text-slate-600 uppercase tracking-wider mb-2">System Status</div>
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-xs text-slate-400">Authentication Service</span>
+              <span className="text-xs text-slate-600">Authentication Service</span>
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-xs text-slate-400">Online</span>
+                <span className="text-xs text-slate-600">Online</span>
               </div>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-xs text-slate-400">Database Connection</span>
+              <span className="text-xs text-slate-600">Database Connection</span>
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                <span className="text-xs text-slate-400">Active</span>
+                <span className="text-xs text-slate-600">Active</span>
               </div>
             </div>
           </div>
